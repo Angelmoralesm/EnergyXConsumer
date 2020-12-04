@@ -1,7 +1,1 @@
-database
-this is grate
-lol
-value
-HPPavilionGaming16-a0004la 200w
-hpprobook440g3 44v
-YourPCmodelname 200w
+EMPY
