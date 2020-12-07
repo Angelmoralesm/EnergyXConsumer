@@ -9,12 +9,11 @@ import time
 import os
 import psutil
 from os import remove
-import datetime
 
 #porcent_aux = psutil.cpu_percent()
 time.sleep(1)
 #battery=psutil.sensors_battery()
-
+#porcent = psutil.cpu_percent()
 #cpu_number=psutil.cpu_count(logical=True)
 #print(battery)
 #oss=platform.system()
@@ -48,47 +47,6 @@ def operation(list_aux):
 	print(kwh)
 	gasto_mensual = 105*kwh
 	print(gasto_mensual)
-	o_s=platform.system()
-	label_os=Label(win,text=o_s)
-	label_os.place(x=4,y=2)
-	time_p=0
-	
-	def update_labels():
-		percent2 = psutil.cpu_percent(interval=1,percpu=True)
-		print(percent2)
-		percent_aux = str(percent2)
-		var_percent.set(percent_aux)
-		#if percent2 > 75:
-		#	label_cpu_percent.config(fg="#c71010")
-		#else:
-		#	label_cpu_percent.config(fg="#18a11a")
-		label_cpu_percent.after(1000, update_labels)
-
-	def update_time(count=0):
-		global time_p
-		minutes = str(datetime.timedelta(seconds=count))
-
-		label_time_count['text'] = minutes
-
-		label_time_count.after(1000,update_time,(count+1))
-	label_time_count=tk.Label(win)
-	label_time_count.place(x=69,y=69)
-
-	percent = psutil.cpu_percent()
-	var_percent = tk.StringVar()
-	var_percent.set(str(percent))
-	global cpu_n
-	cpu_n = psutil.cpu_count(logical=True)
-	#print(cpu_n)
-	#list_cpu[cpu_n]=[]
-	#for n in rage(cpu_n):
-	#	list_cpu[n]=percent2[n]
-	label_cpu_percent = tk.Label(win, textvariable=var_percent, fg="#18a11a")
-	label_cpu_percent.place(x=130,y=40)
-	label_cpu_tittle = Label(win,text="cpu_percent_usage:")
-	label_cpu_tittle.place(x=1,y=40)
-	update_time()
-	update_labels()
 def Search():
 	finded=True
 	#busqueda dentro de base de datos
@@ -123,16 +81,16 @@ def register():
 			new_choices = ('4900HS')
 			varSerie.set('4900HS')
 		
-		if serie == 'Core i3':
+		if serie == 'core i3':
 			new_choices = ('1115G4','9300','8300','6100U')
 			varSerie.set('1115G4')
-		if serie == 'Core i5':
+		if serie == 'core i5':
 			new_choices = ('1135G7','10400','9600T','8265U')
 			varSerie.set('1115G7') 
-		if serie == 'Core i9':
+		if serie == 'core i9':
 			new_choices = ('10900','8950HK','9980HK','10900XX','9920XX','9940XX')
 			varSerie.set('10900')
-		if serie == 'Core i7':
+		if serie == 'core i7':
 			new_choices = ('10875H','6560U')
 			varSerie.set('10875H')
 		if serie == 'Celeron':
@@ -289,7 +247,7 @@ def register():
 	label_processor.config(font=("Helvetica",10,'bold'))
 	
 	opciones_marca = ['Intel','AMD']
-	list_mod = ['Core i3','Core i5','Core i7','Core i9','Pentium','Celeron']
+	list_mod = ['core i3','core i5','core i7','core i9','Pentium','Celeron']
 	opciones_serie =['1115G4','9300','8300','6100U']
 	
 	marca=tk.StringVar()
